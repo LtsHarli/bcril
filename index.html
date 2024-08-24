@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraper API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #0056b3;
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+        }
+        .example {
+            background-color: #e9f7fe;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scraper API Documentation</h1>
+        <p>Welcome to the Scraper API! This API allows you to scrape a webpage, including all of its linked CSS, JavaScript, images, and other resources, and provides them directly for download without saving them locally on the server.</p>
+
+        <h2>How to Use the API</h2>
+        <p>To use the API, make a <code>GET</code> request to the following endpoint:</p>
+        <pre><code>GET http://harli.xyz/bcril?url={WEBPAGE_URL}[&href={true|false}]</code></pre>
+        <p>Replace <code>{WEBPAGE_URL}</code> with the full URL of the webpage you want to scrape.</p>
+        <p>You can also use the <code>href</code> parameter to indicate whether you want to scrape and include pages linked within the main page:</p>
+        <pre><code>GET http://harli.xyz/bcril?url=https://example.com&href=true</code></pre>
+
+        <h2>Example Request</h2>
+        <p>Here’s an example of how to use the API to scrape <code>https://example.com</code>:</p>
+        <pre><code>GET http://harli.xyz/bcril?url=https://example.com</code></pre>
+
+        <div class="example">
+            <h2>Response</h2>
+            <p>If the request is successful, you will receive the HTML content of the scraped page as a file download:</p>
+            <pre><code>{
+    "message": "Scraping complete!",
+    "savedPath": "/path/to/your/saved/directory/index.html"
+}</code></pre>
+            <p>The <code>savedPath</code> indicates where the main HTML file was saved on the server. However, with the updated implementation, the file is sent directly to the client for download, and this field may not be present in the response.</p>
+        </div>
+
+        <h2>Handling Links</h2>
+        <p>By default, the API will download and include all linked resources such as CSS files, JavaScript files, and images directly in the HTML content. You can also choose to scrape and include pages linked within the main webpage by setting the <code>href</code> parameter to <code>true</code>.</p>
+        <pre><code>GET http://harli.xyz/bcril?url=https://example.com&href=true</code></pre>
+        <p>When <code>href=true</code> is provided, the scraper will also attempt to download and update internal links pointing to the same domain. External links and well-known domains (e.g., <code>google.com</code>) are not modified or downloaded.</p>
+
+        <h2>Important Notes</h2>
+        <p>This API is intended for educational purposes only. Be sure to respect copyright and privacy laws when scraping content from the web.</p>
+        <p>The API provides the final HTML content for download without saving files on the server. This approach helps to avoid unnecessary file storage on the server and directly delivers the content to the client.</p>
+    </div>
+</body>
+</html>
