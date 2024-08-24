@@ -66,14 +66,14 @@
 
         <h2>How to Use the API</h2>
         <p>To use the API, make a <code>GET</code> request to the following endpoint:</p>
-        <pre><code>GET http://harli.xyz/bcril?url={WEBPAGE_URL}[&href={true|false}]</code></pre>
+        <pre><code>GET http://localhost/bcril?url={WEBPAGE_URL}[&href={true|false}]</code></pre>
         <p>Replace <code>{WEBPAGE_URL}</code> with the full URL of the webpage you want to scrape.</p>
         <p>You can also use the <code>href</code> parameter to indicate whether you want to scrape and include pages linked within the main page:</p>
-        <pre><code>GET http://harli.xyz/bcril?url=https://example.com&href=true</code></pre>
+        <pre><code>GET http://localhost/bcril?url=https://example.com&href=true</code></pre>
 
         <h2>Example Request</h2>
         <p>Here’s an example of how to use the API to scrape <code>https://example.com</code>:</p>
-        <pre><code>GET http://harli.xyz/bcril?url=https://example.com</code></pre>
+        <pre><code>GET http://localhost/bcril?url=https://example.com</code></pre>
 
         <div class="example">
             <h2>Response</h2>
@@ -87,7 +87,7 @@
 
         <h2>Handling Links</h2>
         <p>By default, the API will download and include all linked resources such as CSS files, JavaScript files, and images directly in the HTML content. You can also choose to scrape and include pages linked within the main webpage by setting the <code>href</code> parameter to <code>true</code>.</p>
-        <pre><code>GET http://harli.xyz/bcril?url=https://example.com&href=true</code></pre>
+        <pre><code>GET http://localhost/bcril?url=https://example.com&href=true</code></pre>
         <p>When <code>href=true</code> is provided, the scraper will also attempt to download and update internal links pointing to the same domain. External links and well-known domains (e.g., <code>google.com</code>) are not modified or downloaded.</p>
 
         <h2>Important Notes</h2>
