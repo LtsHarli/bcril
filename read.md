@@ -6,3 +6,7 @@ This tool can download the href's of a page (will go to them and download them, 
 This tool is meant for educational purposes only 
 
 https://harli.xyz/ for the free online api usage
+
+Server.js is the API
+
+main.py is the tool
